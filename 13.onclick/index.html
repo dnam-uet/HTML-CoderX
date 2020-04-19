@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<input type="text" name="newItem" id="newItem">
+	<button onclick = "addItem()">Add</button>
+	<ul id="toDoList">
+		<!-- <li>Eat breakfast</li>
+		<li>Eat lunch</li>
+		<li>Eat dinner</li> -->
+	</ul>
+	<input type="text" name="removeItem" id="removeItem">
+	<button onclick="removeItem()">Delete</button>
+	<script type="text/javascript">
+		var listHTML = document.getElementById("toDoList");
+		var content = [
+			'Eat breakfast',
+			'Eat lunch',
+			'Eat dinner'
+		];
+		console.log(content);
+
+		function addItem(){
+			//get value from input
+			var input = document.getElementById("newItem");
+			var element = input.value;
+			//add value to list item 
+			content.push(element);
+			console.log(content);
+			//render list
+			render();
+			//re-value
+			document.getElementById("newItem").value = '';
+		}
+
+		function removeItem(){
+			// reference remove item, get value item need remove
+			var deleteItem = document.getElementById("removeItem");
+			var position = deleteItem.value - 1;
+			// remove item
+			content.splice(position,1);
+			//reder
+			render();
+			// re-value
+			deleteItem.value = '';
+		}
+
+		function render(){
+			var setList = content.map(function(element){
+				return "<li>" + element + "</li>";
+			});
+			var element = setList.join('');
+			listHTML.innerHTML = element;
+			console.log(element);
+		}
+		render();
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<ul id="toDoList">
+		<!-- <li>Eat breakfast</li>
+		<li>Eat lunch</li>
+		<li>Eat dinner</li> -->
+	</ul>
+	<script type="text/javascript">
+		var listHTML = document.getElementById("toDoList");
+		var content = [
+			'Eat breakfast',
+			'Eat lunch',
+			'Eat dinner'
+		];
+
+		content = content.map(function(element){
+			return "<li>" + element + "</li>";
+		});
+		var element = content.join('');
+		console.log(element);
+		listHTML.innerHTML = element;
+	</script>
+</body>
+</html>

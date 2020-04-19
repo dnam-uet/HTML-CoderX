@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p class="foo">1</p>
+	<p class="foo">2</p>
+	<p>3</p>
+	<p>4</p>
+	<p class="foo">5</p>
+	<script type="text/javascript">
+		var elements = document.getElementsByTagName("p");
+
+		var chooseElement = [];
+		for(var element of elements){
+			if(element.getAttribute("class") === "foo") chooseElement.push(element);
+		}
+
+		for(var element of chooseElement){
+			var text = document.createElement('a');
+			text.setAttribute("href",'https://school.coders-x.com/');
+			text.textContent = 'Link to CoderX';
+			element.appendChild(text);
+		}
+		console.log(chooseElement);
+
+		
+	</script>
+</body>
+</html>
